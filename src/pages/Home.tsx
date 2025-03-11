@@ -1,6 +1,7 @@
 import React from 'react';
-import { Stack, Text, Title } from '@mantine/core';
+import { Button, Stack, Text, Title } from '@mantine/core';
 import { Trans, useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -11,7 +12,7 @@ export const Home: React.FC = () => {
         <Title order={1} mb="lg">
           {t('HEADLINE')}
         </Title>
-        <Stack gap="sm">
+        <Stack gap="sm" align="center">
           <Text>{t('GREETING')}</Text>
           <Text>
             <Trans
@@ -27,6 +28,9 @@ export const Home: React.FC = () => {
               }}
             />
           </Text>
+          <Button variant="subtle">
+            <Link to="/festivals">{t('GO_TO_TASK')}</Link>
+          </Button>
         </Stack>
       </Stack>
     </>
