@@ -16,8 +16,6 @@ import { Festival } from 'src/components/Festival';
 export const Festivals: React.FC = () => {
   const { data: festivals, isLoading, error } = useQueryFestivals({});
 
-  console.log(festivals);
-
   if (isLoading) {
     return <LoadingOverlay visible />;
   }
