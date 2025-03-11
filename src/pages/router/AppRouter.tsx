@@ -7,7 +7,7 @@ export const AppRouter: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/festival" element={<Festivals />} />
+      <Route path="/festivals" element={<Festivals />} />
     </Routes>
   );
 };
