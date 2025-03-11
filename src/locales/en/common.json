@@ -2,5 +2,12 @@
   "HEADLINE": "Welcome to the Frontend Challenge!",
   "GREETING": "Thank you for taking the time to complete this challenge. Your task is to build an event listing page using React.",
   "INFO": "All the details and requirements can be found in the <a>README</a> file. Good luck, and happy coding!",
-  "GO_TO_TASK": "Go to the Task!"
+  "GO_TO_TASK": "Go to the Task!",
+  "FESTIVALS_ERRORS": "Error loading Festivals",
+  "SEARCH_FESTIVAL_BY_NAME": "Search festival by name",
+  "CLOSE": "Close",
+  "CITY_NOT_AVAILABLE": "City not available",
+  "COUNTRY_NOT_AVAILABLE": "Country not available",
+  "ARTISTS": "Artists",
+  "SHOW_MORE": "Show more"
 }

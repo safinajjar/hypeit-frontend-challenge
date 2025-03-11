@@ -10,6 +10,7 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
+import { useTranslation } from 'react-i18next';
 import { FestivalType, useQueryFestivals } from 'src/api';
 import { Festival } from 'src/components/Festival';
 import { SelectedFestival } from 'src/components/SelectedFestival';
@@ -17,6 +18,7 @@ import { formatDate } from 'src/helpers/formatter';
 import useFestivalFilter from 'src/hooks/useFestivalFilter';
 
 export const Festivals: FC = () => {
+  const { t } = useTranslation();
   const [search, setSearch] = useState<string>('');
   const { data: festivals, isLoading, error } = useQueryFestivals({});
   const filteredFestivals = useFestivalFilter(festivals, search);
@@ -39,7 +41,7 @@ export const Festivals: FC = () => {
   if (error) {
     return (
       <Stack>
-        <Text>Error loading Festivals</Text>
+        <Text>{t('FESTIVALS_ERRORS')}</Text>
       </Stack>
     );
   }
@@ -49,7 +51,7 @@ export const Festivals: FC = () => {
       <TextInput
         leftSectionPointerEvents="none"
         leftSection={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-        placeholder="Search festival by name"
+        placeholder={t('SEARCH_FESTIVAL_BY_NAME')}
         value={search}
         onChange={handleOnSearchChange}
       />

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Button, Card, Image, Stack, Text } from '@mantine/core';
+import { useTranslation } from 'react-i18next';
 import { formatDate } from 'src/helpers/formatter';
 
 export type FestivalProps = {
@@ -17,6 +18,8 @@ export const Festival: FC<FestivalProps> = ({
   imageURL,
   onFestivalSelect,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Card.Section>
@@ -41,7 +44,7 @@ export const Festival: FC<FestivalProps> = ({
         radius="md"
         onClick={onFestivalSelect}
       >
-        show more
+        {t('SHOW_MORE')}
       </Button>
     </Card>
   );
