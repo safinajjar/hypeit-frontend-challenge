@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { Button, Card, Group, Image, Text } from '@mantine/core';
-
-// name, date, location, image
+import { Button, Card, Image, Stack, Text } from '@mantine/core';
+import { formatDate } from 'src/helpers/formatter';
 
 export type FestivalProps = {
   name: string | null | undefined;
@@ -15,21 +14,23 @@ export const Festival: FC<FestivalProps> = ({
   date,
   location,
   imageURL,
-}: FestivalProps) => {
+}) => {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
       <Card.Section>
         <Image src={imageURL} height={160} alt={name || ''} />
       </Card.Section>
 
-      <Group justify="space-between" mt="md" mb="xs">
-        <Text fw={500} size="sm">
+      <Stack gap={'xs'} style={{ marginBlockStart: '1em' }}>
+        <Text fw={500} size="md">
           {name}
         </Text>
-        <Text size="sm">{date}</Text>
-      </Group>
 
-      <Text size="md">{location}</Text>
+        <Text size="sm">
+          {formatDate(date || '')}
+          {location ? `, ${location}` : ''}
+        </Text>
+      </Stack>
 
       <Button color="blue" fullWidth mt="md" radius="md">
         show more

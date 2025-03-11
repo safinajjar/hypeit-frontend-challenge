@@ -13,6 +13,7 @@ import {
 import { Fragment } from 'react/jsx-runtime';
 import { FestivalType, useQueryFestivals } from 'src/api';
 import { Festival } from 'src/components/Festival';
+import { formatDate } from 'src/helpers/formatter';
 import useFestivalFilter from 'src/hooks/useFestivalFilter';
 
 export const Festivals: React.FC = () => {
@@ -53,7 +54,7 @@ export const Festivals: React.FC = () => {
             <Grid.Col span={4}>
               <Festival
                 name={festival.name}
-                date={festival.start}
+                date={formatDate(festival.start || '')}
                 location={festival.location?.city}
                 imageURL={festival.image}
               />
