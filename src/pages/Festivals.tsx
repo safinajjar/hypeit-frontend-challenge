@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -10,19 +10,27 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
-import { Fragment } from 'react/jsx-runtime';
 import { FestivalType, useQueryFestivals } from 'src/api';
 import { Festival } from 'src/components/Festival';
+import { SelectedFestival } from 'src/components/SelectedFestival';
 import { formatDate } from 'src/helpers/formatter';
 import useFestivalFilter from 'src/hooks/useFestivalFilter';
 
-export const Festivals: React.FC = () => {
+export const Festivals: FC = () => {
   const [search, setSearch] = useState<string>('');
   const { data: festivals, isLoading, error } = useQueryFestivals({});
   const filteredFestivals = useFestivalFilter(festivals, search);
+  const [selectedFestival, setSelectedFestival] = useState<FestivalType | null>(
+    null
+  );
 
-  const handleOnSearchChange = (e: ChangeEvent<HTMLInputElement>) =>
+  const handleOnSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+  };
+
+  const handleOnFestivalModalClose = () => {
+    setSelectedFestival(null);
+  };
 
   if (isLoading) {
     return <LoadingOverlay visible />;
@@ -50,18 +58,33 @@ export const Festivals: React.FC = () => {
 
       <Grid>
         {filteredFestivals?.map((festival: FestivalType) => (
-          <Fragment key={festival.id}>
-            <Grid.Col span={4}>
-              <Festival
-                name={festival.name}
-                date={formatDate(festival.start || '')}
-                location={festival.location?.city}
-                imageURL={festival.image}
-              />
-            </Grid.Col>
-          </Fragment>
+          <Grid.Col
+            key={festival.id}
+            span={{
+              base: 12,
+              xs: 6,
+              sm: 6,
+              md: 4,
+              lg: 4,
+            }}
+          >
+            <Festival
+              name={festival.name}
+              date={formatDate(festival.start || '')}
+              location={festival.location?.city}
+              imageURL={festival.image}
+              onFestivalSelect={() => setSelectedFestival(festival)}
+            />
+          </Grid.Col>
         ))}
       </Grid>
+
+      {selectedFestival && (
+        <SelectedFestival
+          festival={selectedFestival}
+          onClose={handleOnFestivalModalClose}
+        />
+      )}
     </Container>
   );
 };
