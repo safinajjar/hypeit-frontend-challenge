@@ -11,6 +11,8 @@ export const MantineProvider: React.FC<MantineProviderPropsType> = ({
   children,
 }) => {
   return (
-    <NativeMantineProvider theme={theme}>{children}</NativeMantineProvider>
+    <NativeMantineProvider theme={theme} defaultColorScheme="dark">
+      {children}
+    </NativeMantineProvider>
   );
 };

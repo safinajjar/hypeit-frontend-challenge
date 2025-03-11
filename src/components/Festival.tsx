@@ -7,6 +7,7 @@ export type FestivalProps = {
   date: string | null | undefined;
   location: string | null | undefined;
   imageURL: string | null | undefined;
+  onFestivalSelect: () => void;
 };
 
 export const Festival: FC<FestivalProps> = ({
@@ -14,6 +15,7 @@ export const Festival: FC<FestivalProps> = ({
   date,
   location,
   imageURL,
+  onFestivalSelect,
 }) => {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder>
@@ -32,7 +34,13 @@ export const Festival: FC<FestivalProps> = ({
         </Text>
       </Stack>
 
-      <Button color="blue" fullWidth mt="md" radius="md">
+      <Button
+        color="blue"
+        fullWidth
+        mt="md"
+        radius="md"
+        onClick={onFestivalSelect}
+      >
         show more
       </Button>
     </Card>
