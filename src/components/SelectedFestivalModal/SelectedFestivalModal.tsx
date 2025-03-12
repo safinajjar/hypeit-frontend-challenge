@@ -19,7 +19,7 @@ export const SelectedFestivalModal: React.FC<SelectedFestivalProps> = ({
       size="lg"
       title={festival.name}
       opened={!!festival}
-      onClose={() => onClose}
+      onClose={onClose}
     >
       <Stack gap="md">
         <Image src={festival.image} radius="md" alt={festival.name || ''} />
