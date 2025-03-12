@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Image, Stack, Text } from '@mantine/core';
+import { Button, Card, Image, Space, Stack, Text } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { formatDate } from 'src/helpers/formatter';
 
@@ -26,7 +26,9 @@ export const Festival: React.FC<FestivalProps> = ({
         <Image src={imageURL} height={160} alt={name || ''} />
       </Card.Section>
 
-      <Stack gap={'xs'} style={{ marginBlockStart: '1em' }}>
+      <Space h="xs" />
+
+      <Stack gap="xs">
         <Text fw={500} size="md">
           {name}
         </Text>

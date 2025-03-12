@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Modal, Space, Stack, Text } from '@mantine/core';
+import { Button, Image, Modal, Stack, Text } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { FestivalType } from 'src/api';
 import { formatDate } from 'src/helpers/formatter';
@@ -30,9 +30,7 @@ export const SelectedFestivalModal: React.FC<SelectedFestivalProps> = ({
           {festival.location?.city || t('CITY_NOT_AVAILABLE')},{' '}
           {festival.location?.country || t('COUNTRY_NOT_AVAILABLE')}
         </Text>
-        <Space />
         <Text>{festival.info}</Text>
-        <Space />
         <Text fw={500}>{t('ARTISTS')}:</Text>
         <Text size="sm">
           {festival.artists?.map((artist) => artist.name).join(', ')}
