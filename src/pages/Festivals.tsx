@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import React, { useState } from 'react';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,7 +17,7 @@ import { SelectedFestival } from 'src/components/SelectedFestival';
 import { formatDate } from 'src/helpers/formatter';
 import useFestivalFilter from 'src/hooks/useFestivalFilter';
 
-export const Festivals: FC = () => {
+export const Festivals: React.FC = () => {
   const { t } = useTranslation();
   const [search, setSearch] = useState<string>('');
   const { data: festivals, isLoading, error } = useQueryFestivals({});
@@ -26,7 +26,7 @@ export const Festivals: FC = () => {
     null
   );
 
-  const handleOnSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleOnSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 import { Button, Image, Modal, Space, Stack, Text } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { FestivalType } from 'src/api';
@@ -9,7 +9,7 @@ type SelectedFestivalProps = {
   onClose: () => void;
 };
 
-export const SelectedFestival: FC<SelectedFestivalProps> = ({
+export const SelectedFestival: React.FC<SelectedFestivalProps> = ({
   festival,
   onClose,
 }) => {

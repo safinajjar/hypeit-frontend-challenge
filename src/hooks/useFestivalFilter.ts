@@ -4,7 +4,7 @@ import { FestivalType } from 'src/api';
 
 export default function useFestivalFilter(
   festivals: FestivalType[] = [],
-  searchKeyword: String
+  searchKeyword: string
 ): FestivalType[] {
   const [debouncedSearch] = useDebouncedValue(searchKeyword, 300);
 

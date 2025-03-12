@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 import { Button, Card, Image, Stack, Text } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { formatDate } from 'src/helpers/formatter';
@@ -11,7 +11,7 @@ export type FestivalProps = {
   onFestivalSelect: () => void;
 };
 
-export const Festival: FC<FestivalProps> = ({
+export const Festival: React.FC<FestivalProps> = ({
   name,
   date,
   location,
