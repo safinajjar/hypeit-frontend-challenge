@@ -47,7 +47,8 @@ export const Festivals: React.FC = () => {
   }
 
   return (
-    <Container style={{ marginBlock: '3em' }}>
+    <Container>
+      <Space h="xl" />
       <TextInput
         leftSectionPointerEvents="none"
         leftSection={<FontAwesomeIcon icon={faMagnifyingGlass} />}
