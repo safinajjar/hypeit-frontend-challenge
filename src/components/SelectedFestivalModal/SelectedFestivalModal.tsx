@@ -9,7 +9,7 @@ type SelectedFestivalProps = {
   onClose: () => void;
 };
 
-export const SelectedFestival: React.FC<SelectedFestivalProps> = ({
+export const SelectedFestivalModal: React.FC<SelectedFestivalProps> = ({
   festival,
   onClose,
 }) => {

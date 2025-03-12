@@ -12,8 +12,8 @@ import {
 } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { FestivalType, useQueryFestivals } from 'src/api';
-import { Festival } from 'src/components/Festival';
-import { SelectedFestival } from 'src/components/SelectedFestival';
+import { Festival } from 'src/components/Festival/Festival';
+import { SelectedFestivalModal } from 'src/components/SelectedFestivalModal/SelectedFestivalModal';
 import { formatDate } from 'src/helpers/formatter';
 import useFestivalFilter from 'src/hooks/useFestivalFilter';
 
@@ -82,7 +82,7 @@ export const Festivals: React.FC = () => {
       </Grid>
 
       {selectedFestival && (
-        <SelectedFestival
+        <SelectedFestivalModal
           festival={selectedFestival}
           onClose={handleOnFestivalModalClose}
         />
